@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maison Éclat | Güzellik & Cilt Bakım Merkezi, Kadıköy</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* ============ 1) TEMA: renkleri buradan değiştirin ============ */
+:root{--bg:#f6f2ec;--bg2:#ece5da;--ink:#2b2a26;--mute:#6d675c;--olive:#3c4234;--gold:#a88a55;--line:#d9d0c1;--card:#fbf9f5;
+--serif:"Cormorant Garamond",Georgia,serif;--sans:"Jost",system-ui,sans-serif;color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1d1e1a;--bg2:#262822;--ink:#efe9df;--mute:#b0a999;--olive:#cfd3c0;--gold:#c9aa72;--line:#3a3c34;--card:#23251f;color-scheme:dark}}
+*{box-sizing:border-box;margin:0}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--ink);font:300 17px/1.65 var(--sans)}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.1;color:var(--olive)}
+h1{font-size:clamp(2.6rem,7vw,5.2rem)}h2{font-size:clamp(2rem,4.5vw,3.1rem)}h3{font-size:1.5rem}
+p{max-width:60ch}a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1120px;margin:auto;padding:0 24px}
+section{padding:88px 0}
+.sub{color:var(--mute);margin-top:14px}
+/* Navbar */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:-1}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font:600 1.7rem var(--serif);color:var(--olive);text-decoration:none;letter-spacing:.02em}
+.logo i{color:var(--gold)}
+nav{display:flex;gap:28px;align-items:center}
+nav a{text-decoration:none;font-size:.95rem;padding:6px 0;border-bottom:1px solid transparent;transition:border-color .3s}
+nav a:hover,nav a.on{border-color:var(--gold)}
+.btn{display:inline-block;background:var(--olive);color:var(--bg);padding:13px 28px;border:1px solid var(--olive);border-radius:2px;font:400 .95rem var(--sans);text-decoration:none;cursor:pointer;transition:background .3s,color .3s}
+.btn:hover{background:transparent;color:var(--olive)}
+.btn.ghost{background:transparent;color:var(--olive)}.btn.ghost:hover{background:var(--olive);color:var(--bg)}
+nav .btn{padding:9px 20px}nav .btn:hover,nav .btn.on{color:var(--olive)}
+.burger{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer;color:var(--olive);font-size:1.6rem}
+@media(max-width:860px){.burger{display:block}
+nav{position:absolute;left:0;right:0;top:72px;background:var(--bg);flex-direction:column;align-items:flex-start;padding:20px 24px 28px;gap:16px;border-bottom:1px solid var(--line);display:none}
+nav.open{display:flex}}
+/* Views */
+.view{display:none}.view.on{display:block}
+.pagehead{padding:72px 0 8px}
+/* Hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;padding:72px 0}
+.hero p{margin:22px 0 32px;font-size:1.1rem}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.arch{aspect-ratio:3/4;border-radius:999px 999px 6px 6px;background:radial-gradient(circle at 50% 28%,#e9dcc3,transparent 60%),linear-gradient(160deg,#cfc3ad,#8d8f78 70%,#3c4234);position:relative;display:flex;align-items:flex-end;justify-content:center;padding:32px}
+.arch span{font:italic 500 1.3rem var(--serif);color:#fbf9f5;text-align:center}
+.stats{display:flex;gap:40px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:28px;margin-top:8px}
+.stats b{display:block;font:500 2.3rem var(--serif);color:var(--olive)}
+.stats small{color:var(--mute)}
+@media(max-width:860px){.hero{grid-template-columns:1fr;gap:36px}.arch{max-width:340px}}
+/* Cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px;margin-top:36px}
+.card{background:var(--card);border:1px solid var(--line);padding:28px;border-radius:3px;transition:transform .35s,border-color .35s}
+.card:hover{transform:translateY(-4px);border-color:var(--gold)}
+.card p{font-size:.95rem;color:var(--mute);margin:10px 0 18px}
+.meta{display:flex;justify-content:space-between;align-items:center;font-size:.9rem;color:var(--gold)}
+.meta button{background:none;border:0;border-bottom:1px solid var(--gold);color:var(--olive);cursor:pointer;font:inherit;padding:2px 0}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.chip{background:none;border:1px solid var(--line);color:var(--ink);padding:8px 18px;border-radius:99px;cursor:pointer;font:inherit;font-size:.9rem;transition:all .25s}
+.chip.on,.chip:hover{background:var(--olive);color:var(--bg);border-color:var(--olive)}
+/* Interstitial */
+.inter{background:var(--olive);color:#efe9df;text-align:center}
+.inter h2{color:#efe9df;max-width:18ch;margin:auto}
+.inter .sub{color:#c9c6b5;margin:18px auto 0}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;margin-top:56px;text-align:left}
+.steps div{border-top:1px solid var(--gold);padding-top:18px}
+.steps h3{color:#efe9df;font-size:1.35rem;margin-bottom:8px}.steps p{color:#c9c6b5;font-size:.95rem}
+/* Team & gallery */
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px;margin-top:36px}
+.face{aspect-ratio:4/5;border-radius:3px;margin-bottom:14px;display:flex;align-items:flex-end;padding:16px;font:italic 500 2.6rem var(--serif);color:#fbf9f5}
+.team p{font-size:.92rem;color:var(--mute)}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;margin-top:30px}
+.tile{aspect-ratio:1;border-radius:3px;display:flex;align-items:flex-end;padding:14px;color:#fbf9f5;font-size:.88rem}
+/* FAQ */
+details{border-bottom:1px solid var(--line);padding:18px 0}
+summary{cursor:pointer;font:500 1.35rem var(--serif);color:var(--olive);list-style:none;display:flex;justify-content:space-between}
+summary::after{content:"+";color:var(--gold);transition:transform .3s}details[open] summary::after{transform:rotate(45deg)}
+details p{margin-top:10px;color:var(--mute)}
+/* Contact */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+@media(max-width:860px){.two{grid-template-columns:1fr;gap:40px}}
+form{display:grid;gap:16px}
+label{font-size:.9rem;color:var(--mute);display:grid;gap:6px}
+input,select{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:2px;padding:12px;width:100%}
+.err{color:#a14a3a;font-size:.85rem;min-height:1em}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ok{display:none;border:1px solid var(--gold);padding:22px;border-radius:3px;background:var(--card)}
+.info p{margin-bottom:14px}.info b{color:var(--olive);font-weight:500}
+footer{border-top:1px solid var(--line);padding:36px 0;color:var(--mute);font-size:.9rem;text-align:center}
+#top{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));width:46px;height:46px;border-radius:50%;border:1px solid var(--gold);background:var(--bg);color:var(--olive);cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s;font-size:1.2rem}
+#top.show{opacity:1;pointer-events:auto}
+/* Ara sahne: perde geçişi */
+#curtain{position:fixed;inset:0;z-index:50;background:var(--olive);display:flex;align-items:center;justify-content:center;transform:translateY(100%);pointer-events:none;color:#efe9df;font:italic 500 2rem var(--serif)}
+#curtain.in{transition:transform .55s cubic-bezier(.7,0,.3,1);transform:translateY(0);pointer-events:auto}
+#curtain.out{transition:transform .6s cubic-bezier(.7,0,.3,1);transform:translateY(-100%)}
+#curtain em{color:var(--gold);font-style:normal}
+/* Scroll reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease;transition-delay:calc(var(--d,0)*90ms)}
+.rv.vis{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}#curtain{display:none}*{transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div id="curtain" aria-hidden="true"><span></span></div>
+<header><div class="wrap nav">
+  <a class="logo" href="#home" data-go="home" id="brand"></a>
+  <button class="burger" id="burger" aria-label="Menüyü aç" aria-expanded="false">☰</button>
+  <nav id="nav"></nav>
+</div></header>
+
+<main>
+<!-- ANA SAYFA -->
+<div class="view" id="v-home"><div class="wrap">
+  <div class="hero">
+    <div>
+      <h1 class="rv">Cildiniz için sakin, kişiye özel bir bakım</h1>
+      <p class="rv" style="--d:1">Kadıköy’de, size ayrılmış zamanda yapılan analizle başlayan bakım programları. Acele yok, gereksiz işlem yok.</p>
+      <div class="cta rv" style="--d:2"><a class="btn" href="#iletisim" data-go="iletisim">Randevu oluştur</a><a class="btn ghost" href="#hizmetler" data-go="hizmetler">Hizmetleri incele</a></div>
+    </div>
+    <div class="arch rv" style="--d:2"><span>Önce analiz,<br>sonra bakım.</span></div>
+  </div>
+  <div class="stats rv"><div><b data-n="12">0</b><small>yıllık deneyim</small></div><div><b data-n="8400">0</b><small>tamamlanan bakım</small></div><div><b data-n="6">0</b><small>sertifikalı uzman</small></div></div>
+</div>
+<section><div class="wrap"><h2 class="rv">Öne çıkan bakımlar</h2><p class="sub rv">En çok tercih edilen üç uygulama.</p><div class="grid" id="featured"></div></div></section>
+<section class="inter"><div class="wrap"><h2 class="rv">Güzellik, hijyenle başlar</h2><p class="sub rv">Her seans öncesi kabin yeniden hazırlanır; her misafir için tek kullanımlık ve sterilize edilmiş ekipman kullanılır.</p>
+<div class="steps"><div class="rv"><h3>Yüz yüze analiz</h3><p>Cilt tipiniz, alışkanlıklarınız ve beklentiniz konuşulur.</p></div><div class="rv" style="--d:1"><h3>Kişisel program</h3><p>Ürün ve cihaz seçimi analize göre yapılır.</p></div><div class="rv" style="--d:2"><h3>Takip</h3><p>Seans sonrası bakım notları ve kontrol randevusu verilir.</p></div></div></div></section>
+</div>
+
+<!-- HİZMETLER -->
+<div class="view" id="v-hizmetler"><div class="wrap">
+  <div class="pagehead"><h1 class="rv">Hizmetler</h1><p class="sub rv">Süre ve işlem mantığı her kartta yazar. Fiyat bilgisi için randevu sırasında bize ulaşın.</p>
+  <div class="chips rv" id="svcChips" role="group" aria-label="Hizmet kategorisi"></div></div>
+  <div class="grid" id="svcGrid" style="padding-bottom:88px"></div>
+</div></div>
+
+<!-- DENEYİM -->
+<div class="view" id="v-deneyim">
+  <div class="wrap pagehead"><h1 class="rv">Deneyim</h1><p class="sub rv">Salonda geçirdiğiniz sürenin her adımı önceden planlanır.</p></div>
+  <section class="inter" style="margin-top:56px"><div class="wrap"><h2 class="rv">Cihaz, ürün ve analiz yaklaşımımız</h2>
+  <p class="sub rv">Az ama doğru ürün. Cihazlar yılda iki kez bakım ve kalibrasyondan geçer; ürünler dermatolojik olarak test edilmiş markalardan seçilir.</p>
+  <div class="steps"><div class="rv"><h3>Hijyen standardı</h3><p>Kabin dezenfeksiyonu, tek kullanımlık örtü ve otoklavla sterilizasyon.</p></div><div class="rv" style="--d:1"><h3>Cihaz yaklaşımı</h3><p>Yalnızca onaylı, düzenli kontrol edilen cihazlar kullanılır.</p></div><div class="rv" style="--d:2"><h3>Cilt analizi</h3><p>Seans öncesi 20 dakikalık dijital ve manuel analiz yapılır.</p></div></div></div></section>
+</div>
+
+<!-- KADRO & GALERİ -->
+<div class="view" id="v-kadro"><div class="wrap">
+  <div class="pagehead"><h1 class="rv">Uzman kadro</h1></div>
+  <div class="team" id="team"></div>
+  <h2 style="margin-top:88px" class="rv">Galeri</h2>
+  <p class="sub rv">Uygulama atmosferinden kareler. Öncesi/sonrası görselleri için misafirlerimizin onayı alınır.</p>
+  <div class="chips rv" id="galChips" role="group" aria-label="Galeri kategorisi"></div>
+  <div class="gal" id="gal" style="padding-bottom:88px"></div>
+</div></div>
+
+<!-- İLETİŞİM -->
+<div class="view" id="v-iletisim"><div class="wrap">
+  <div class="pagehead"><h1 class="rv">Randevu & iletişim</h1></div>
+  <div class="two" style="padding:40px 0 88px">
+    <div>
+      <form id="form" novalidate>
+        <label>Hizmet<select id="fs" required></select><span class="err"></span></label>
+        <div class="row"><label>Tarih<input type="date" id="fd" required><span class="err"></span></label>
+        <label>Saat tercihi<select id="ft"><option>Sabah (10:00–13:00)</option><option>Öğleden sonra (13:00–17:00)</option><option>Akşam (17:00–20:00)</option></select></label></div>
+        <label>Ad soyad<input id="fn" autocomplete="name" required><span class="err"></span></label>
+        <label>Telefon<input id="fp" type="tel" inputmode="tel" autocomplete="tel" placeholder="05XX XXX XX XX" required><span class="err"></span></label>
+        <button class="btn" type="submit">Randevu talebi gönder</button>
+      </form>
+      <div class="ok" id="ok" role="status"></div>
+    </div>
+    <div class="info" id="info"></div>
+  </div>
+  <h2 class="rv">Sıkça sorulan sorular</h2><div id="faq" style="padding-bottom:88px;margin-top:20px"></div>
+</div></div>
+</main>
+<footer><div class="wrap" id="foot"></div></footer>
+<button id="top" aria-label="Yukarı çık">↑</button>
+
+<script>
+/* ============ 2) İÇERİK: başka salona uyarlarken yalnızca bu bölümü düzenleyin ============ */
+const SITE={
+  name:"Maison Éclat", tag:"Kadıköy Güzellik Merkezi",
+  phone:"0216 000 00 00", wa:"905000000000",
+  address:"Caferağa Mah. Moda Cd. No: 00/2, Kadıköy / İstanbul",
+  hours:[["Pazartesi – Cumartesi","10:00 – 20:00"],["Pazar","Kapalı"]],
+  cats:["Cilt bakımı","Medikal estetik","Lazer & epilasyon","Kaş & kirpik","El & ayak","Bölgesel bakım"],
+  services:[
+    [0,"Hydra cilt bakımı","60 dk","Temizleme, peeling ve nem yüklemesi. Gün içinde normal hayata dönülür.",1],
+    [0,"Leke karşıtı bakım","75 dk","Cilt analizi sonrası C vitamini ve eksfoliasyon protokolü.",0],
+    [1,"Mezoterapi","45 dk","İnce iğne ile vitamin ve hyaluronik asit desteği. Uzman kontrolünde uygulanır.",0],
+    [1,"Dermapen","50 dk","Kontrollü mikro kanallarla cilt yüzeyinin yenilenmesi.",0],
+    [2,"Lazer epilasyon","20–90 dk","Bölgeye göre süre değişir. İlk seans öncesi test atışı yapılır.",1],
+    [2,"Ağda & sir","30–60 dk","Hassas ciltler için düşük ısılı, tek kullanımlık spatula ile.",0],
+    [3,"Kaş tasarımı","40 dk","Yüz hatlarınıza göre şekillendirme ve boyama.",0],
+    [3,"İpek kirpik","90 dk","Doğal kirpiğe tek tek uygulama; 3–4 hafta kalıcılık.",1],
+    [3,"Kirpik lifting","60 dk","Kirpiği kökten kıvırır, kimyasal içeriği düşük formüllerle.",0],
+    [4,"Protez tırnak","90 dk","Tırnak yapınıza uygun jel sistem ve bakım.",0],
+    [4,"Spa manikür & pedikür","75 dk","Parafin, masaj ve kalıcı oje seçenekleriyle.",0],
+    [5,"Sırt & dekolte bakımı","55 dk","Derin temizleme ve nemlendirici maske.",0]
+  ],
+  team:[["Defne Aras","Kurucu, cilt bakım uzmanı","#8d8f78"],["Dr. Elif Kaya","Medikal estetik danışmanı","#b9a47c"],["Burcu Demir","Lazer & epilasyon uzmanı","#6e7560"],["Ceren Yılmaz","Kaş & kirpik tasarımcısı","#a68e6c"]],
+  faq:[["İlk randevuda ne olur?","Analiz için 20 dakika ayırıyoruz. Cilt tipinizi ve beklentinizi konuşup size uygun programı birlikte seçeriz."],["Randevuyu iptal edebilir miyim?","Evet. 24 saat öncesine kadar telefon veya WhatsApp ile ücretsiz iptal ya da erteleme yapılır."],["Hamilelikte hangi bakımlar yapılır?","Cilt temizliği ve nemlendirme yapılır. Lazer ve medikal uygulamalar için doğumdan sonra gelmenizi öneririz."],["Seans sonrası makyaj yapabilir miyim?","Cilt bakımında genellikle evet. Medikal uygulamalarda 24 saat beklemeniz istenir; uzmanımız bunu önceden söyler."],["Ödeme seçenekleri nelerdir?","Nakit, kredi kartı ve havale kabul ediyoruz. Paket alımlarında taksit imkânı vardır."]]
+};
+const PAGES=[["home","Ana sayfa"],["hizmetler","Hizmetler"],["deneyim","Deneyim"],["kadro","Kadro & galeri"],["iletisim","Randevu"]];
+
+/* ============ 3) MOTOR ============ */
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let cur="";
+
+/* Marka, menü, footer */
+$("#brand").innerHTML=esc(SITE.name.split(" ")[0])+" <i>"+esc(SITE.name.split(" ").slice(1).join(" "))+"</i>";
+document.title=SITE.name+" | "+SITE.tag;
+$("#nav").innerHTML=PAGES.map(([id,t])=>`<a href="#${id}" data-go="${id}" ${id==="iletisim"?'class="btn"':""}>${id==="iletisim"?"Randevu al":t}</a>`).join("");
+$("#foot").textContent="© "+new Date().getFullYear()+" "+SITE.name+" · "+SITE.address;
+
+/* Kart & liste üretimi */
+const card=s=>`<article class="card rv"><h3>${esc(s[1])}</h3><p>${esc(s[3])}</p><div class="meta"><span>${esc(s[2])}</span><button data-book="${esc(s[1])}">Detay / Randevu</button></div></article>`;
+$("#featured").innerHTML=SITE.services.filter(s=>s[4]).map(card).join("");
+function chips(el,labels,cb){el.innerHTML=["Tümü",...labels].map((l,i)=>`<button class="chip ${i?"":"on"}" data-i="${i-1}">${esc(l)}</button>`).join("");
+  el.onclick=e=>{const b=e.target.closest(".chip");if(!b)return;$$("#"+el.id+" .chip").forEach(c=>c.classList.remove("on"));b.classList.add("on");cb(+b.dataset.i)}}
+function svc(i){$("#svcGrid").innerHTML=SITE.services.filter(s=>i<0||s[0]===i).map(card).join("");reveal()}
+chips($("#svcChips"),SITE.cats,svc);svc(-1);
+$("#team").innerHTML=SITE.team.map((m,i)=>`<div class="rv" style="--d:${i}"><div class="face" style="background:linear-gradient(160deg,${m[2]},#3c4234)">${esc(m[0][0])}</div><h3>${esc(m[0])}</h3><p>${esc(m[1])}</p></div>`).join("");
+const tones=["#8d8f78","#b9a47c","#6e7560","#a68e6c","#c8bba2","#505848"];
+const tiles=SITE.cats.flatMap((c,ci)=>[0,1].map(k=>({ci,c,bg:`linear-gradient(${140+k*50}deg,${tones[(ci+k)%6]},${tones[(ci+k+2)%6]})`})));
+function gal(i){$("#gal").innerHTML=tiles.filter(t=>i<0||t.ci===i).map(t=>`<div class="tile rv" style="background:${t.bg}">${esc(t.c)}</div>`).join("");reveal()}
+chips($("#galChips"),SITE.cats,gal);gal(-1);
+$("#faq").innerHTML=SITE.faq.map(f=>`<details><summary>${esc(f[0])}</summary><p>${esc(f[1])}</p></details>`).join("");
+$("#info").innerHTML=`<p><b>Adres</b><br>${esc(SITE.address)}</p><p><b>Çalışma saatleri</b><br>${SITE.hours.map(h=>esc(h[0])+": "+esc(h[1])).join("<br>")}</p><p><b>Telefon</b><br><a href="tel:${SITE.phone.replace(/\s/g,"")}">${esc(SITE.phone)}</a></p><p><a class="btn ghost" href="https://wa.me/${SITE.wa}" rel="noopener">WhatsApp’tan yazın</a></p>`;
+$("#fs").innerHTML='<option value="">Hizmet seçin</option>'+SITE.cats.map((c,i)=>`<optgroup label="${esc(c)}">${SITE.services.filter(s=>s[0]===i).map(s=>`<option>${esc(s[1])}</option>`).join("")}</optgroup>`).join("");
+$("#fd").min=new Date().toISOString().slice(0,10);
+
+/* Scroll reveal (kademeli) */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("vis");io.unobserve(e.target)}}),{threshold:.12});
+function reveal(){$$(".view.on .rv:not(.vis)").forEach(el=>io.observe(el))}
+/* Sayaç animasyonu */
+function counters(){$$(".view.on [data-n]").forEach(el=>{const n=+el.dataset.n;if(reduce){el.textContent=n.toLocaleString("tr");return}
+  let t0;const f=t=>{t0??=t;const p=Math.min((t-t0)/1400,1);el.textContent=Math.round(n*(1-Math.pow(1-p,3))).toLocaleString("tr");if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)})}
+
+/* Sayfa geçişi: perde kapanır, görünüm değişir, perde yukarı kalkar */
+function show(id){$$(".view").forEach(v=>v.classList.toggle("on",v.id==="v-"+id));
+  $$("nav a").forEach(a=>{const on=a.dataset.go===id;a.classList.toggle("on",on);on?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current")});
+  $$(".view.on .rv").forEach(el=>el.classList.remove("vis"));
+  scrollTo(0,0);cur=id;$("#nav").classList.remove("open");$("#burger").setAttribute("aria-expanded","false");
+  setTimeout(()=>{reveal();counters()},reduce?0:250)}
+function go(id){if(!PAGES.some(p=>p[0]===id))id="home";if(id===cur)return;
+  if(reduce||!cur){show(id);return}
+  const c=$("#curtain");c.firstElementChild.innerHTML=esc(PAGES.find(p=>p[0]===id)[1]);
+  c.className="in";setTimeout(()=>{show(id);c.className="out";setTimeout(()=>{c.className="";c.style.transform=""},650)},650)}
+document.addEventListener("click",e=>{const a=e.target.closest("[data-go]");if(a){e.preventDefault();history.pushState(null,"","#"+a.dataset.go);go(a.dataset.go);return}
+  const b=e.target.closest("[data-book]");if(b){$("#fs").value=b.dataset.book;history.pushState(null,"","#iletisim");go("iletisim")}});
+addEventListener("hashchange",()=>go(location.hash.slice(1)));
+$("#burger").onclick=()=>{const o=$("#nav").classList.toggle("open");$("#burger").setAttribute("aria-expanded",o)};
+
+/* Yukarı çık */
+addEventListener("scroll",()=>$("#top").classList.toggle("show",scrollY>500),{passive:true});
+$("#top").onclick=()=>scrollTo({top:0,behavior:reduce?"auto":"smooth"});
+
+/* Form doğrulama ve anında onay */
+$("#form").onsubmit=e=>{e.preventDefault();let ok=true;
+  const chk=(id,test,msg)=>{const el=$("#"+id),er=el.parentElement.querySelector(".err");const bad=!test(el.value.trim());er.textContent=bad?msg:"";if(bad)ok=false};
+  chk("fs",v=>v,"Lütfen bir hizmet seçin.");chk("fd",v=>v&&v>=$("#fd").min,"Bugün veya sonraki bir tarih seçin.");
+  chk("fn",v=>v.length>=3&&v.includes(" "),"Ad ve soyadınızı yazın.");chk("fp",v=>/^(\+?90|0)?\s?5\d{2}[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}$/.test(v),"Geçerli bir cep numarası yazın. Örnek: 0532 000 00 00");
+  if(!ok)return;
+  const d=new Date($("#fd").value).toLocaleDateString("tr",{day:"numeric",month:"long",weekday:"long"});
+  $("#ok").innerHTML=`<h3>Talebiniz alındı</h3><p style="margin-top:8px">${esc($("#fn").value)}, <b>${esc($("#fs").value)}</b> için ${esc(d)} (${esc($("#ft").value)}) talebinizi aldık. 2 saat içinde ${esc($("#fp").value)} numarasından sizi arayıp saati kesinleştireceğiz.</p>`;
+  $("#ok").style.display="block";$("#form").style.display="none";$("#ok").scrollIntoView({block:"center"})};
+
+go(location.hash.slice(1)||"home");
+</script>
+</body>
+</html>
